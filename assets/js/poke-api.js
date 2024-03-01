@@ -5,6 +5,15 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
+    
+    // Informção base dos pokemons ↓
+    const statusPoke = pokeDetail.stats.map((StatPokemon) => StatPokemon.stat.name)
+    pokemon.status = statusPoke
+
+    const statusValues = pokeDetail.stats.map((StatPokemon) => StatPokemon.base_stat)
+    const statValues = statusValues
+    pokemon.statusValores = statValues
+    // Informção base dos pokemons ↑
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
@@ -16,6 +25,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     return pokemon
 }
+
 
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
@@ -33,3 +43,4 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
+

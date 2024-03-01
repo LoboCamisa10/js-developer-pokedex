@@ -127,6 +127,20 @@
     height: 70px;
 }
 
+.upperCase{
+    text-transform: capitalize;
+    color: #333228;
+}
+
+.telabranca{
+    padding: 0.4rem 0.8rem 0.8rem 0.8rem;
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    border-radius: 1rem;
+    font-size: 14px;
+}
+
 .pagination {
     display: flex;
     flex-direction: row;

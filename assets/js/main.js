@@ -18,6 +18,16 @@ function convertPokemonToLi(pokemon) {
 
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
+                
+            </div>
+            <!-- Informção base dos pokemons -->
+            <div class = "telabranca">
+                <p class="upperCase" id="HP">${pokemon.status[0]} - ${pokemon.statusValores[0]}</p>
+                <p class="upperCase" id ="attack">${pokemon.status[1]} - ${pokemon.statusValores[1]}</p>
+                <p class="upperCase" id="defense">${pokemon.status[2]} - ${pokemon.statusValores[2]} </p>
+                <p class="upperCase" id="special-attack">${pokemon.status[3]} - ${pokemon.statusValores[3]} </p>
+                <p class="upperCase" id="special-defense">${pokemon.status[4]} - ${pokemon.statusValores[4]} </p>
+                <p class="upperCase" id="speed">${pokemon.status[5]} - ${pokemon.statusValores[5]}</p>
             </div>
         </li>
     `
@@ -32,6 +42,7 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
+// Buttão de carregar mais ↓
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNexPage = offset + limit
